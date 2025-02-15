@@ -17,6 +17,10 @@ public:
     explicit ChatDialog(QWidget *parent = nullptr);
     ~ChatDialog();
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override ;
+    void handleGlobalMousePress(QMouseEvent *event) ;
+
 private:
     void addChatUserList();
     void ClearLabelState(StateWidget* lb);

@@ -4,6 +4,7 @@
 #include <QRandomGenerator>
 #include "chatuserwid.h"
 #include "loadingdlg.h"
+#include <QMouseEvent>
 
 ChatDialog::ChatDialog(QWidget *parent)
     : QDialog(parent)
@@ -47,8 +48,6 @@ ChatDialog::ChatDialog(QWidget *parent)
     ui->search_edit->SetMaxLength(15);
 
 
-    ShowSearch(false);
-
     // 连接加载信号和槽
     connect(ui->chat_user_list, &ChatUserList::sig_loading_chat_user,
             this, &ChatDialog::slot_loading_chat_user);
@@ -74,12 +73,47 @@ ChatDialog::ChatDialog(QWidget *parent)
     //链接搜索框输入变化
     connect(ui->search_edit, &QLineEdit::textChanged, this, &ChatDialog::slot_text_changed);
 
+    ShowSearch(false);
+
+    //检测鼠标点击位置判断是否要清空搜索框
+    this->installEventFilter(this); // 安装事件过滤器
+
+    //设置聊天label选中状态
+    ui->side_chat_lb->SetSelected(true);
+
 
 }
 
 ChatDialog::~ChatDialog()
 {
     delete ui;
+}
+
+bool ChatDialog::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        handleGlobalMousePress(mouseEvent);
+    }
+    return QDialog::eventFilter(watched, event);
+}
+
+void ChatDialog::handleGlobalMousePress(QMouseEvent *event)
+{
+    // 实现点击位置的判断和处理逻辑
+    // 先判断是否处于搜索模式，如果不处于搜索模式则直接返回
+    if( _mode != ChatUIMode::SearchMode){
+        return;
+    }
+
+    // 将鼠标点击位置转换为搜索列表坐标系中的位置
+    QPoint posInSearchList = ui->search_list->mapFromGlobal(event->globalPos());
+    // 判断点击位置是否在聊天列表的范围内
+    if (!ui->search_list->rect().contains(posInSearchList)) {
+        // 如果不在聊天列表内，清空输入框
+        ui->search_edit->clear();
+        ShowSearch(false);
+    }
 }
 
 
