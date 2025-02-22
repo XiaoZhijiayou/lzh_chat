@@ -19,12 +19,13 @@ public:
     void SetToken(QString token);
     int GetUid();
     QString GetName();
-
+    std::vector<std::shared_ptr<ApplyInfo>> GetApplyList();
 private:
     UserMgr();
     QString _name;
     QString _token;
     int _uid;
+    std::vector<std::shared_ptr<ApplyInfo>> _apply_list;
 
 };
 

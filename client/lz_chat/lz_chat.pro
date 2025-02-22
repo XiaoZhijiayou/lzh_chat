@@ -18,6 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     adduseritem.cpp \
     applyfriend.cpp \
+    applyfrienditem.cpp \
+    applyfriendlist.cpp \
+    applyfriendpage.cpp \
     bubbleframe.cpp \
     chatdialog.cpp \
     chatitembase.cpp \
@@ -56,6 +59,9 @@ SOURCES += \
 HEADERS += \
     adduseritem.h \
     applyfriend.h \
+    applyfrienditem.h \
+    applyfriendlist.h \
+    applyfriendpage.h \
     bubbleframe.h \
     chatdialog.h \
     chatitembase.h \
@@ -94,6 +100,8 @@ HEADERS += \
 FORMS += \
     adduseritem.ui \
     applyfriend.ui \
+    applyfrienditem.ui \
+    applyfriendpage.ui \
     chatdialog.ui \
     chatpage.ui \
     chatuserwid.ui \
