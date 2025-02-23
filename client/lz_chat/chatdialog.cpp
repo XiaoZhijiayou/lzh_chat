@@ -13,7 +13,7 @@ ChatDialog::ChatDialog(QWidget *parent)
 {
     ui->setupUi(this);
     ui->add_btn->SetState("normal","hover","press");
-    ui->search_edit->SetMaxLength(15);
+    ui->add_btn->setProperty("state","normal");
 
     QAction *searchAction = new QAction(ui->search_edit);
     searchAction->setIcon(QIcon(":/res/search.png"));
@@ -81,6 +81,7 @@ ChatDialog::ChatDialog(QWidget *parent)
     //设置聊天label选中状态
     ui->side_chat_lb->SetSelected(true);
 
+    ui->search_list->SetSearchEdit(ui->search_edit);
 
 }
 

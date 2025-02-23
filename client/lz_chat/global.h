@@ -9,6 +9,7 @@
 #include <QByteArray>
 #include <QNetworkReply>
 #include <QJsonObject>
+#include <QJsonDocument>
 #include <memory>
 #include <iostream>
 #include <mutex>
