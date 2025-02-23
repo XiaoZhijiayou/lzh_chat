@@ -8,7 +8,7 @@
 class RedisConPool {
 public:
 	RedisConPool(size_t poolSize, const char* host, int port, const char* pwd)
-		: poolSize_(poolSize), host_(host), port_(port), b_stop_(false), pwd_(pwd), counter_(0) {
+		: poolSize_(poolSize), host_(host), port_(port), b_stop_(false), pwd_(pwd), counter_(0){
 		for (size_t i = 0; i < poolSize_; ++i) {
 			auto* context = redisConnect(host, port);
 			if (context == nullptr || context->err != 0) {
@@ -41,8 +41,8 @@ public:
 				}
 
 				std::this_thread::sleep_for(std::chrono::seconds(1)); // 每隔 30 秒发送一次 PING 命令
-			}
-			});
+			}	
+		});
 
 	}
 
@@ -61,11 +61,11 @@ public:
 
 	redisContext* getConnection() {
 		std::unique_lock<std::mutex> lock(mutex_);
-		cond_.wait(lock, [this] {
+		cond_.wait(lock, [this] { 
 			if (b_stop_) {
 				return true;
 			}
-			return !connections_.empty();
+			return !connections_.empty(); 
 			});
 		//如果停止则直接返回空指针
 		if (b_stop_) {
@@ -111,7 +111,7 @@ private:
 				freeReplyObject(reply);
 				connections_.push(context);
 			}
-			catch (std::exception& exp) {
+			catch(std::exception& exp){
 				std::cout << "Error keeping connection alive: " << exp.what() << std::endl;
 				redisFree(context);
 				context = redisConnect(host_, port_);
@@ -137,7 +137,6 @@ private:
 			}
 		}
 	}
-
 	std::atomic<bool> b_stop_;
 	size_t poolSize_;
 	const char* host_;
@@ -150,24 +149,24 @@ private:
 	int counter_;
 };
 
-class RedisMgr : public Singleton<RedisMgr>,
+class RedisMgr: public Singleton<RedisMgr>, 
 	public std::enable_shared_from_this<RedisMgr>
 {
 	friend class Singleton<RedisMgr>;
 public:
 	~RedisMgr();
-	bool Get(const std::string& key, std::string& value);
-	bool Set(const std::string& key, const std::string& value);
-	bool LPush(const std::string& key, const std::string& value);
-	bool LPop(const std::string& key, std::string& value);
+	bool Get(const std::string &key, std::string& value);
+	bool Set(const std::string &key, const std::string &value);
+	bool LPush(const std::string &key, const std::string &value);
+	bool LPop(const std::string &key, std::string& value);
 	bool RPush(const std::string& key, const std::string& value);
 	bool RPop(const std::string& key, std::string& value);
-	bool HSet(const std::string& key, const std::string& hkey, const std::string& value);
+	bool HSet(const std::string &key, const std::string  &hkey, const std::string &value);
 	bool HSet(const char* key, const char* hkey, const char* hvalue, size_t hvaluelen);
-	std::string HGet(const std::string& key, const std::string& hkey);
+	std::string HGet(const std::string &key, const std::string &hkey);
 	bool HDel(const std::string& key, const std::string& field);
-	bool Del(const std::string& key);
-	bool ExistsKey(const std::string& key);
+	bool Del(const std::string &key);
+	bool ExistsKey(const std::string &key);
 	void Close() {
 		_con_pool->Close();
 		_con_pool->ClearConnections();
@@ -176,3 +175,4 @@ private:
 	RedisMgr();
 	unique_ptr<RedisConPool>  _con_pool;
 };
+
