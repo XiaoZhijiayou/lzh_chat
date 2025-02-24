@@ -72,6 +72,9 @@
     <ClCompile Include="applyfriendpage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="authenfriend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="bubbleframe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -192,6 +195,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="applyfriendpage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="authenfriend.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="bubbleframe.h">
@@ -319,6 +325,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="applyfriendpage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="authenfriend.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="chatdialog.ui">
