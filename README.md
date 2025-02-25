@@ -1,6 +1,11 @@
 ## 程序如何运行
 
-### 服务器端
+### 环境包
+- 环境包路径：D:\cppsoft
+- ![alt text](image.png)
+- 保存在U盘里
+
+### 命令部分
 - Redis: 本地- D:\local_app\Redis-x64-5.0.14.1下，打开终端 - .\redis-server.exe .\redis.windows.conf
 
 - 对应的配置：
