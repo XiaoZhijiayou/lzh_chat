@@ -15,6 +15,7 @@ public:
     explicit ChatPage(QWidget *parent = nullptr);
     ~ChatPage();
 
+
 protected:
     void paintEvent(QPaintEvent *event);
 

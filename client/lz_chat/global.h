@@ -146,4 +146,6 @@ const std::vector<QString> names = {
     "rust"
 };
 
+const int CHAT_COUNT_PER_PAGE = 13;
+
 #endif // GLOBAL_H

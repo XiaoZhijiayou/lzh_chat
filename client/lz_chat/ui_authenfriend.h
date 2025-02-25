@@ -36,7 +36,6 @@ public:
     QWidget *apply_wid;
     QVBoxLayout *verticalLayout_2;
     QFrame *h_line;
-    CustomizeEdit *name_ed;
     QLabel *label_2;
     CustomizeEdit *back_ed;
     QLabel *label_3;
@@ -101,13 +100,6 @@ public:
         h_line->setFrameShadow(QFrame::Sunken);
 
         verticalLayout_2->addWidget(h_line);
-
-        name_ed = new CustomizeEdit(apply_wid);
-        name_ed->setObjectName("name_ed");
-        name_ed->setMinimumSize(QSize(0, 35));
-        name_ed->setMaximumSize(QSize(16777215, 35));
-
-        verticalLayout_2->addWidget(name_ed);
 
         label_2 = new QLabel(apply_wid);
         label_2->setObjectName("label_2");

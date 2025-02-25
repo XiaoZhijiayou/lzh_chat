@@ -25,8 +25,8 @@ private:
 
 public slots:
     void slot_item_clicked(QListWidgetItem *item);
-    //     void slot_add_auth_firend(std::shared_ptr<AuthInfo>);
-    //     void slot_auth_rsp(std::shared_ptr<AuthRsp>);
+    void slot_add_auth_firend(std::shared_ptr<AuthInfo>);
+    void slot_auth_rsp(std::shared_ptr<AuthRsp>);
 signals:
     void sig_loading_contact_user();
     void sig_switch_apply_friend_page();
@@ -34,6 +34,7 @@ signals:
 private:
     ConUserItem* _add_friend_item;
     QListWidgetItem * _groupitem;
+    bool _load_pending;
 };
 
 #endif // CONTACTUSERLIST_H

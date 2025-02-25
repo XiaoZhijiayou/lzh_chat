@@ -30,8 +30,8 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout;
-    QLabel *user_chat_lb;
     QLabel *user_name_lb;
+    QLabel *user_chat_lb;
     QSpacerItem *horizontalSpacer_3;
     ClickedBtn *addBtn;
     QLabel *already_add_lb;
@@ -69,19 +69,19 @@ public:
         verticalLayout->setSpacing(10);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(11, 2, 11, 2);
-        user_chat_lb = new QLabel(widget_2);
-        user_chat_lb->setObjectName("user_chat_lb");
-        user_chat_lb->setMinimumSize(QSize(100, 30));
-        user_chat_lb->setMaximumSize(QSize(200, 30));
-
-        verticalLayout->addWidget(user_chat_lb);
-
         user_name_lb = new QLabel(widget_2);
         user_name_lb->setObjectName("user_name_lb");
         user_name_lb->setMinimumSize(QSize(100, 30));
         user_name_lb->setMaximumSize(QSize(200, 30));
 
         verticalLayout->addWidget(user_name_lb);
+
+        user_chat_lb = new QLabel(widget_2);
+        user_chat_lb->setObjectName("user_chat_lb");
+        user_chat_lb->setMinimumSize(QSize(100, 30));
+        user_chat_lb->setMaximumSize(QSize(200, 30));
+
+        verticalLayout->addWidget(user_chat_lb);
 
 
         horizontalLayout_2->addWidget(widget_2);
@@ -120,8 +120,8 @@ public:
     {
         ApplyFriendItem->setWindowTitle(QCoreApplication::translate("ApplyFriendItem", "Form", nullptr));
         icon_lb->setText(QCoreApplication::translate("ApplyFriendItem", "TextLabel", nullptr));
-        user_chat_lb->setText(QCoreApplication::translate("ApplyFriendItem", "TextLabel", nullptr));
         user_name_lb->setText(QCoreApplication::translate("ApplyFriendItem", "TextLabel", nullptr));
+        user_chat_lb->setText(QCoreApplication::translate("ApplyFriendItem", "TextLabel", nullptr));
         addBtn->setText(QCoreApplication::translate("ApplyFriendItem", "\346\267\273\345\212\240", nullptr));
         already_add_lb->setText(QCoreApplication::translate("ApplyFriendItem", "\345\267\262\346\267\273\345\212\240", nullptr));
     } // retranslateUi
