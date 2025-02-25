@@ -233,6 +233,7 @@
     <ClCompile Include="customizeedit.cpp" />
     <ClCompile Include="findfaildlg.cpp" />
     <ClCompile Include="findsuccessdlg.cpp" />
+    <ClCompile Include="friendinfopage.cpp" />
     <ClCompile Include="friendlabel.cpp" />
     <ClCompile Include="global.cpp" />
     <ClCompile Include="grouptipitem.cpp" />
@@ -276,6 +277,7 @@
     <QtMoc Include="customizeedit.h" />
     <QtMoc Include="findfaildlg.h" />
     <QtMoc Include="findsuccessdlg.h" />
+    <QtMoc Include="friendinfopage.h" />
     <QtMoc Include="friendlabel.h" />
     <ClInclude Include="global.h" />
     <QtMoc Include="grouptipitem.h" />
@@ -325,6 +327,7 @@
     <QtUic Include="conuseritem.ui" />
     <QtUic Include="findfaildlg.ui" />
     <QtUic Include="findsuccessdlg.ui" />
+    <QtUic Include="friendinfopage.ui" />
     <QtUic Include="friendlabel.ui" />
     <QtUic Include="grouptipitem.ui" />
     <QtUic Include="loadingdlg.ui" />
